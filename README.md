@@ -2,7 +2,7 @@
 
 Simple script to create a bootable usb from iso with `dd`
 
-If you are like me, can't remember the dd command to create a bootable USB and always have to googleit again, then this is handy to have..
+If you are like me, can't remember the dd command to create a bootable USB and always have to google it again, then this is handy to have..
 
 ## Usage
 
