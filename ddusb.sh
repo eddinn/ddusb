@@ -37,8 +37,14 @@ else
     printf -- '%s\n' "USB device: $usb"
     printf -- '%s\n\n' "dd will be: dd bs=4M if=$1 of=$usb status=progress oflag=sync"
     read -rp $'Is the input correct? [y/n]: ' -n1 key
+    while [[ $key != @(y|n) ]]; do
+      printf -- '%s\n' ""
+      printf -- '%s\n' "Please enter 'y' or 'n'"
+      read -rp $'Is the input correct? [y/n]: ' -n1 key
+    done
     case "${key}" in
       (y)
+        printf -- '%s\n' ""
         printf -- '%s\n' "Creating bootable USB of ISO $1 to USB device $usb"
         (dd bs=4M if="$1" of="$usb" status=progress oflag=sync)
         printf -- '%s\n' ""
@@ -47,11 +53,6 @@ else
       (n)
         printf -- '%s\n' ""
         printf -- '%s\n' "Aborting!" >&2
-        exit 1
-        ;;
-      (*)
-        printf -- '%s\n' ""
-        printf -- '%s\n' "Invalid input, aborting!" >&2
         exit 1
         ;;
     esac
