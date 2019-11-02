@@ -18,7 +18,7 @@ sda                   8:0    1   7,5G  0 disk
 └─sda3                8:3    1   5,2G  0 part /media/edvin/casper-rw
 
 Please enter the USB dev identifier noted above (e.g sda)
-sda
+Identifier: sda
 
 Creating bootable USB of ISO /home/username/Downloads/pop-os_19.10_amd64_nvidia_9.iso to USB device /dev/sda
 ```
