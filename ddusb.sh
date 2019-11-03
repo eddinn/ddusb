@@ -15,11 +15,11 @@ fi
 
 # Run lsblk and find the USB identifier 
 printf -- '%s\n' "Identify the USB device:"
-lsblk | grep "sd"
+lsblk | grep -v -E 'loop|nvme|rom|lvm'
 
 # Get the identifier from the user
 printf -- '%s\n' ""
-printf -- '%s\n' "Please enter the USB device identifier noted above with full path (e.g /dev/sdf)"
+printf -- '%s\n' "Please enter the USB device identifier noted above (e.g sdf)"
 printf "Identifier: "; read -r usb
 
 # Check if we got any input and continue, exit if none
@@ -28,16 +28,19 @@ if [ -z "$usb" ]; then
   exit 1
 else
   # Validate the input /dev
-  if ! file "$usb" | grep -c "block special" > /dev/null 2>&1; then
-    printf -- '%s\n' "$usb is not a valid target, aborting!"
+  if ! find /dev/disk/by-id/ -lname "*$usb" | grep -c "/dev/disk/by-id/usb" > /dev/null 2>&1; then
+    printf -- '%s\n' /dev/"$usb is not a valid USB target, aborting!"
+    exit 1
+  elif ! file /dev/"$usb" | grep -c "block special" > /dev/null 2>&1; then
+    printf -- '%s\n' /dev/"$usb is not a valid target, aborting!"
     exit 1
   else
     # Show the input and ask for conformation
     printf -- '%s\n' ""
     printf -- '%s\n\n' "Please verify that all input is correct:"
     printf -- '%s\n' "ISO file: $1"
-    printf -- '%s\n' "USB device: $usb"
-    printf -- '%s\n\n' "dd will be: dd bs=4M if=$1 of=$usb status=progress oflag=sync"
+    printf -- '%s\n' "USB device: /dev/$usb"
+    printf -- '%s\n\n' "dd will be: dd bs=4M if=$1 of=/dev/$usb status=progress oflag=sync"
     read -rp $'Is the input correct? [y/n]: ' -n1 key
     # Force y for yes or n for no
     while [[ $key != @(y|n) ]]; do
@@ -50,8 +53,8 @@ else
       (y)
         # All clear, go ahead and continue
         printf -- '%s\n' ""
-        printf -- '%s\n' "Creating bootable USB of ISO $1 to USB device $usb"
-        (dd bs=4M if="$1" of="$usb" status=progress oflag=sync)
+        printf -- '%s\n' "Creating bootable USB of ISO $1 to USB device /dev/$usb"
+        (dd bs=4M if="$1" of=/dev/"$usb" status=progress oflag=sync)
         printf -- '%s\n' ""
         printf -- '%s\n' "Done!"
         ;;

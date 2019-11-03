@@ -1,5 +1,7 @@
 # ddusb
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b397dc236764aafb557dbd0f0a447f4)](https://www.codacy.com/manual/git_35/ddusb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eddinn/ddusb&amp;utm_campaign=Badge_Grade)
+
 Simple script to create a bootable usb from iso with `dd`
 
 If you are like me, can't remember the dd command to create a bootable USB and always have to google it again, then this is handy to have..
@@ -19,8 +21,8 @@ sdf                   8:0    1   7,5G  0 disk
 ├─sdf2                8:2    1   3,9M  0 part
 └─sdf3                8:3    1   5,2G  0 part /media/username/casper-rw
 
-Please enter the USB device identifier noted above with full path (e.g /dev/sdf)
-Identifier: /dev/sdf
+Please enter the USB device identifier noted above (e.g sdf)
+Identifier: sdf
 
 Please verify that all input is correct:
 
