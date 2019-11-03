@@ -2,6 +2,10 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b397dc236764aafb557dbd0f0a447f4)](https://www.codacy.com/manual/git_35/ddusb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eddinn/ddusb&amp;utm_campaign=Badge_Grade)
 
+> **Notice!**
+> Use at your own risk, I take no responsibility for any accidental misuse or overwrites of disk drives!
+> I include precautions so the script tries to validate the device as an USB device, but that's not a substitude for user error!
+
 Simple script to create a bootable usb from iso with `dd`
 
 If you are like me, can't remember the dd command to create a bootable USB and always have to google it again, then this is handy to have..
