@@ -1,6 +1,6 @@
 # ddusb
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b397dc236764aafb557dbd0f0a447f4)](https://www.codacy.com/manual/git_35/ddusb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eddinn/ddusb&amp;utm_campaign=Badge_Grade) ![GitHub](https://img.shields.io/github/license/eddinn/ddusb)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b397dc236764aafb557dbd0f0a447f4)](https://www.codacy.com/manual/git_35/ddusb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eddinn/ddusb&amp;utm_campaign=Badge_Grade) ![GitHub issues](https://img.shields.io/github/issues/eddinn/ddusb) ![GitHub](https://img.shields.io/github/license/eddinn/ddusb)
 
 > **Notice!**
 >
